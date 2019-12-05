@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    keyword-rank:
+       build:
+         context: .
+         dockerfile: Dockerfile
+         args:
+           buildno: 1
+       volumes:
+         - ./:/app
+       stdin_open: true
+       tty: true
+       privileged: true
+       entrypoint: ["python", "/app/page_rank_main.py"]
